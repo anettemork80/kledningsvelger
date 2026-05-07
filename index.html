@@ -31,7 +31,7 @@ body { background: #fff; }
 .mkv-opt {
   padding: 18px 20px;
   border: 1px solid var(--border);
-  border-radius: 6px;
+  border-radius: 0;
   cursor: pointer;
   background: var(--bg);
   transition: border-color 0.15s, background 0.15s;
@@ -44,13 +44,13 @@ body { background: #fff; }
 .mkv-opt-desc { font-size: 14px; color: var(--muted); line-height: 1.5; }
 .mkv-nav { display: flex; align-items: center; justify-content: space-between; }
 .mkv-step-info { font-size: 14px; color: var(--subtle); }
-.mkv-btn { padding: 12px 24px; border-radius: 4px; font-size: 16px; font-weight: 500; cursor: pointer; border: 1px solid var(--border); background: var(--bg); color: var(--text); transition: background 0.15s; }
+.mkv-btn { padding: 12px 24px; border-radius: 0; font-size: 16px; font-weight: 500; cursor: pointer; border: 1px solid var(--border); background: var(--bg); color: var(--text); transition: background 0.15s; }
 .mkv-btn:hover { background: #f0f0f0; }
 .mkv-btn.pri { background: var(--teal); color: #fff; border-color: var(--teal); }
 .mkv-btn.pri:hover { background: var(--teal-dark); }
 .mkv-btn:disabled { opacity: 0.35; cursor: not-allowed; }
 .mkv-prog { display: flex; gap: 6px; margin-bottom: 2.25rem; }
-.mkv-dot { height: 4px; flex: 1; border-radius: 2px; background: var(--border); transition: background 0.2s; }
+.mkv-dot { height: 4px; flex: 1; border-radius: 0; background: var(--border); transition: background 0.2s; }
 .mkv-dot.done { background: var(--teal); }
 .mkv-dot.act { background: var(--orange); }
 .mkv-divider { height: 1px; background: var(--border); margin: 1.75rem 0; }
@@ -59,28 +59,28 @@ body { background: #fff; }
 .mkv-rec-title a:hover { text-decoration: underline; }
 .mkv-rec-title { font-size: 28px; font-weight: 500; color: var(--teal); margin-bottom: 6px; }
 .mkv-rec-sub { font-size: 15px; color: var(--muted); margin-bottom: 1.25rem; line-height: 1.5; }
-.mkv-tag { display: inline-block; font-size: 12px; padding: 4px 12px; border-radius: 20px; border: 1px solid var(--border); color: var(--muted); margin-right: 6px; margin-bottom: 1rem; }
+.mkv-tag { display: inline-block; font-size: 12px; padding: 4px 12px; border-radius: 0; border: 1px solid var(--border); color: var(--muted); margin-right: 6px; margin-bottom: 1rem; }
 .mkv-why { font-size: 15px; color: var(--muted); line-height: 1.7; padding: 16px 18px; background: var(--bg2); border-left: 3px solid var(--orange); margin-bottom: 1.25rem; }
 .mkv-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 1.25rem; }
-.mkv-pill { font-size: 13px; padding: 5px 14px; border-radius: 20px; border: 1px solid var(--border); color: var(--muted); }
-.mkv-product-img { width: 100%; max-height: 260px; object-fit: cover; border-radius: 6px; margin-bottom: 1.25rem; display: block; }
-.mkv-colors { margin-bottom: 1.25rem; padding: 16px 18px; border-radius: 6px; border: 1px solid var(--border); background: #fff; }
+.mkv-pill { font-size: 13px; padding: 5px 14px; border-radius: 0; border: 1px solid var(--border); color: var(--muted); }
+.mkv-product-img { width: 100%; max-height: 260px; object-fit: cover; border-radius: 0; margin-bottom: 1.25rem; display: block; }
+.mkv-colors { margin-bottom: 1.25rem; padding: 16px 18px; border-radius: 0; border: 1px solid var(--border); background: #fff; }
 .mkv-colors-label { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 12px; }
-.mkv-fargekart { width: 100%; max-width: 560px; display: block; border-radius: 4px; margin-bottom: 8px; }
+.mkv-fargekart { width: 100%; max-width: 560px; display: block; border-radius: 0; margin-bottom: 8px; }
 .mkv-colors-note { font-size: 13px; color: var(--muted); margin-top: 10px; line-height: 1.5; }
 .mkv-colors-note a { color: var(--teal); }
 .mkv-colors-free { display: flex; align-items: center; gap: 16px; }
 .mkv-colors-free img { width: 60px; height: 60px; flex-shrink: 0; }
 .mkv-colors-free-text { font-size: 14px; color: var(--muted); line-height: 1.55; }
 .mkv-colors-free-text a { color: var(--teal); }
-.mkv-effort { margin-bottom: 1.25rem; padding: 16px 18px; border-radius: 6px; border: 1px solid var(--border); background: var(--bg2); }
+.mkv-effort { margin-bottom: 1.25rem; padding: 16px 18px; border-radius: 0; border: 1px solid var(--border); background: var(--bg2); }
 .mkv-effort-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
 .mkv-effort-label { font-size: 14px; font-weight: 600; color: var(--text); }
 .mkv-effort-hours { font-size: 14px; color: var(--muted); }
-.mkv-effort-bar-bg { height: 7px; background: var(--border); border-radius: 3px; overflow: hidden; }
-.mkv-effort-bar-fill { height: 7px; border-radius: 3px; background: var(--teal); }
+.mkv-effort-bar-bg { height: 7px; background: var(--border); border-radius: 0; overflow: hidden; }
+.mkv-effort-bar-fill { height: 7px; border-radius: 0; background: var(--teal); }
 .mkv-effort-human { font-size: 13px; color: var(--muted); margin-top: 8px; font-style: italic; }
-.mkv-weather { display: flex; align-items: flex-start; gap: 12px; padding: 14px 16px; background: var(--green-bg); border-radius: 6px; margin-bottom: 1.25rem; border: 1px solid #c0ddd8; }
+.mkv-weather { display: flex; align-items: flex-start; gap: 12px; padding: 14px 16px; background: var(--green-bg); border-radius: 0; margin-bottom: 1.25rem; border: 1px solid #c0ddd8; }
 .mkv-weather-icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
 .mkv-weather-text { font-size: 14px; color: var(--green); line-height: 1.6; }
 .mkv-nudge { padding: 16px 18px; background: var(--orange-bg); border-left: 3px solid var(--orange); border-radius: 0 6px 6px 0; margin-bottom: 1.25rem; }
@@ -89,11 +89,11 @@ body { background: #fff; }
 .mkv-nudge-text a { color: #8a4010; font-weight: 600; }
 .mkv-profiles-label { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 10px; }
 .mkv-profile-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 1.5rem; }
-.mkv-profile-item { font-size: 14px; color: var(--muted); padding: 10px 14px; background: var(--bg2); border-radius: 4px; border: 1px solid var(--border); }
+.mkv-profile-item { font-size: 14px; color: var(--muted); padding: 10px 14px; background: var(--bg2); border-radius: 0; border: 1px solid var(--border); }
 .mkv-profile-item strong { color: var(--text); }
 .mkv-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
 .mkv-ctas a { text-decoration: none; }
-.mkv-alt { margin-top: 1.5rem; font-size: 14px; color: var(--muted); line-height: 1.65; padding: 14px 16px; border: 1px solid var(--border); border-radius: 4px; background: var(--bg2); }
+.mkv-alt { margin-top: 1.5rem; font-size: 14px; color: var(--muted); line-height: 1.65; padding: 14px 16px; border: 1px solid var(--border); border-radius: 0; background: var(--bg2); }
 .mkv-alt strong { color: var(--text); }
 .mkv-alt a { color: var(--teal); }
 .mkv-restart { background: none; border: none; font-size: 14px; color: var(--subtle); cursor: pointer; padding: 0; text-decoration: underline; margin-top: 1.5rem; display: block; }
