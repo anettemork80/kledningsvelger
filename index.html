@@ -1,0 +1,210 @@
+<style>
+:root {
+  --teal: #0c4c51;
+  --teal-bg: #e8f2f2;
+  --orange: #e27d39;
+}
+#mkv { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; max-width: 640px; padding: 2rem 0; }
+.mkv-screen { display: none; }
+.mkv-screen.on { display: block; }
+.mkv-q { font-size: 18px; font-weight: 500; color: #1a1a1a; margin-bottom: 0.35rem; }
+.mkv-hint { font-size: 14px; color: #5a5a5a; margin-bottom: 1.5rem; }
+.mkv-opts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 1.75rem; }
+.mkv-opts.cols3 { grid-template-columns: 1fr 1fr 1fr; }
+.mkv-opt {
+  padding: 14px 16px;
+  border: 1px solid #d4e4e4;
+  border-radius: 6px;
+  cursor: pointer;
+  background: #fff;
+  transition: border-color 0.15s, background 0.15s;
+  text-align: left;
+}
+.mkv-opt:hover { border-color: #0c4c51; }
+.mkv-opt.sel { border: 2px solid #0c4c51; background: #e8f2f2; }
+.mkv-opt-title { font-size: 14px; font-weight: 600; color: #1a1a1a; margin-bottom: 2px; }
+.mkv-opt-desc { font-size: 12px; color: #5a5a5a; line-height: 1.5; }
+.mkv-nav { display: flex; align-items: center; justify-content: space-between; }
+.mkv-step { font-size: 12px; color: #999; }
+.mkv-btn { padding: 9px 20px; border-radius: 4px; font-size: 14px; font-weight: 500; cursor: pointer; border: 1px solid #d4e4e4; background: #fff; color: #1a1a1a; transition: background 0.15s; }
+.mkv-btn:hover { background: #f5f5f5; }
+.mkv-btn.pri { background: #0c4c51; color: #fff; border-color: #0c4c51; }
+.mkv-btn.pri:hover { opacity: 0.88; }
+.mkv-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+.mkv-prog { display: flex; gap: 6px; margin-bottom: 2rem; }
+.mkv-dot { height: 3px; flex: 1; border-radius: 2px; background: #d4e4e4; transition: background 0.2s; }
+.mkv-dot.done { background: #0c4c51; }
+.mkv-dot.act { background: #e27d39; }
+.mkv-divider { height: 1px; background: #d4e4e4; margin: 1.5rem 0; }
+.mkv-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: #999; margin-bottom: 4px; }
+.mkv-rec-title { font-size: 22px; font-weight: 500; color: #0c4c51; margin-bottom: 2px; }
+.mkv-rec-sub { font-size: 14px; color: #5a5a5a; margin-bottom: 1.25rem; }
+.mkv-why { font-size: 14px; color: #5a5a5a; line-height: 1.65; padding: 14px 16px; background: #fafafa; border-left: 3px solid #e27d39; margin-bottom: 1.25rem; }
+.mkv-pills { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1.25rem; }
+.mkv-pill { font-size: 12px; padding: 4px 12px; border-radius: 20px; border: 1px solid #d4e4e4; color: #5a5a5a; }
+.mkv-ctas { display: flex; gap: 10px; flex-wrap: wrap; }
+.mkv-alt { margin-top: 1.5rem; font-size: 13px; color: #5a5a5a; line-height: 1.6; }
+.mkv-alt a { color: #0c4c51; }
+.mkv-restart { background: none; border: none; font-size: 13px; color: #999; cursor: pointer; padding: 0; text-decoration: underline; margin-top: 1.25rem; }
+.mkv-restart:hover { color: #1a1a1a; }
+@media (max-width: 500px) {
+  .mkv-opts, .mkv-opts.cols3 { grid-template-columns: 1fr; }
+}
+</style>
+
+<div id="mkv">
+
+  <div class="mkv-prog">
+    <div class="mkv-dot act" id="d0"></div>
+    <div class="mkv-dot" id="d1"></div>
+    <div class="mkv-dot" id="d2"></div>
+    <div class="mkv-dot" id="d3"></div>
+  </div>
+
+  <div class="mkv-screen on" id="s0">
+    <p class="mkv-q">Hva beskriver stilen på huset ditt best?</p>
+    <p class="mkv-hint">Stilen påvirker hvilken profil og retning som passer best.</p>
+    <div class="mkv-opts">
+      <button class="mkv-opt" data-q="0" data-v="modern"><div class="mkv-opt-title">Moderne / minimalistisk</div><div class="mkv-opt-desc">Rene linjer, store flater, lite dekor</div></button>
+      <button class="mkv-opt" data-q="0" data-v="classic"><div class="mkv-opt-title">Tradisjonelt / klassisk</div><div class="mkv-opt-desc">Klassisk norsk husform, villa eller eldre bolig</div></button>
+      <button class="mkv-opt" data-q="0" data-v="rustic"><div class="mkv-opt-title">Naturlig / landlig</div><div class="mkv-opt-desc">Hytte, uthus eller bolig med naturlig preg</div></button>
+      <button class="mkv-opt" data-q="0" data-v="nordic"><div class="mkv-opt-title">Arkitektonisk / nordisk</div><div class="mkv-opt-desc">Tydelig form, gjerne kombinasjon av materialer</div></button>
+    </div>
+    <div class="mkv-nav">
+      <span class="mkv-step">Steg 1 av 4</span>
+      <button class="mkv-btn pri" onclick="next(0)" id="n0" disabled>Neste</button>
+    </div>
+  </div>
+
+  <div class="mkv-screen" id="s1">
+    <p class="mkv-q">Stående eller liggende kledning?</p>
+    <p class="mkv-hint">Retningen påvirker husets visuelle uttrykk – stående er moderne, liggende er klassisk.</p>
+    <div class="mkv-opts cols3">
+      <button class="mkv-opt" data-q="1" data-v="standing"><div class="mkv-opt-title">Stående</div><div class="mkv-opt-desc">Vertikalt og moderne preg</div></button>
+      <button class="mkv-opt" data-q="1" data-v="horizontal"><div class="mkv-opt-title">Liggende</div><div class="mkv-opt-desc">Klassisk og rolig preg</div></button>
+      <button class="mkv-opt" data-q="1" data-v="either"><div class="mkv-opt-title">Usikker</div><div class="mkv-opt-desc">Hjelp meg velge</div></button>
+    </div>
+    <div class="mkv-nav">
+      <button class="mkv-btn" onclick="back(1)">Tilbake</button>
+      <span class="mkv-step">Steg 2 av 4</span>
+      <button class="mkv-btn pri" onclick="next(1)" id="n1" disabled>Neste</button>
+    </div>
+  </div>
+
+  <div class="mkv-screen" id="s2">
+    <p class="mkv-q">Hvor mye vedlikehold er du villig til?</p>
+    <p class="mkv-hint">Tresortet og behandlingen avgjør hvor ofte du trenger å male eller beise.</p>
+    <div class="mkv-opts">
+      <button class="mkv-opt" data-q="2" data-v="none"><div class="mkv-opt-title">Minst mulig</div><div class="mkv-opt-desc">Vil slippe å tenke på det i mange år</div></button>
+      <button class="mkv-opt" data-q="2" data-v="some"><div class="mkv-opt-title">Litt, hvert 8–12 år</div><div class="mkv-opt-desc">OK med maling innimellom</div></button>
+      <button class="mkv-opt" data-q="2" data-v="regular"><div class="mkv-opt-title">Jeg gjør det gjerne selv</div><div class="mkv-opt-desc">Maling er en del av huseierjobben</div></button>
+      <button class="mkv-opt" data-q="2" data-v="natural"><div class="mkv-opt-title">Naturlig gråning er fint</div><div class="mkv-opt-desc">Liker at treet eldes og får patina</div></button>
+    </div>
+    <div class="mkv-nav">
+      <button class="mkv-btn" onclick="back(2)">Tilbake</button>
+      <span class="mkv-step">Steg 3 av 4</span>
+      <button class="mkv-btn pri" onclick="next(2)" id="n2" disabled>Neste</button>
+    </div>
+  </div>
+
+  <div class="mkv-screen" id="s3">
+    <p class="mkv-q">Hva er viktigst for deg?</p>
+    <p class="mkv-hint">Vi hjelper deg å finne riktig balanse mellom pris og kvalitet.</p>
+    <div class="mkv-opts">
+      <button class="mkv-opt" data-q="3" data-v="budget"><div class="mkv-opt-title">Pris er viktig</div><div class="mkv-opt-desc">God kledning til fornuftig pris</div></button>
+      <button class="mkv-opt" data-q="3" data-v="value"><div class="mkv-opt-title">Balanse pris / kvalitet</div><div class="mkv-opt-desc">God kvalitet uten å gå på akkord</div></button>
+      <button class="mkv-opt" data-q="3" data-v="premium"><div class="mkv-opt-title">Kvalitet er viktigst</div><div class="mkv-opt-desc">Vil ha det beste og betaler for det</div></button>
+      <button class="mkv-opt" data-q="3" data-v="eco"><div class="mkv-opt-title">Bærekraft og miljø</div><div class="mkv-opt-desc">Lavt klimafotavtrykk og lang levetid</div></button>
+    </div>
+    <div class="mkv-nav">
+      <button class="mkv-btn" onclick="back(3)">Tilbake</button>
+      <span class="mkv-step">Steg 4 av 4</span>
+      <button class="mkv-btn pri" onclick="showResult()" id="n3" disabled>Se anbefaling</button>
+    </div>
+  </div>
+
+  <div class="mkv-screen" id="s4">
+    <div id="result"></div>
+  </div>
+
+</div>
+
+<script>
+var a = {};
+
+document.querySelectorAll('.mkv-opt').forEach(function(el) {
+  el.addEventListener('click', function() {
+    var q = this.dataset.q;
+    document.querySelectorAll('.mkv-opt[data-q="'+q+'"]').forEach(function(s){ s.classList.remove('sel'); });
+    this.classList.add('sel');
+    a[q] = this.dataset.v;
+    var nb = document.getElementById('n'+q);
+    if(nb) nb.disabled = false;
+  });
+});
+
+function setProgress(n) {
+  for(var i=0;i<4;i++){
+    var d = document.getElementById('d'+i);
+    d.className = 'mkv-dot' + (i<n?' done':i===n?' act':'');
+  }
+}
+
+function show(n) {
+  document.querySelectorAll('.mkv-screen').forEach(function(s){ s.classList.remove('on'); });
+  var sc = document.getElementById('s'+n);
+  if(sc) sc.classList.add('on');
+  setProgress(n<4?n:3);
+}
+
+window.next = function(s) { if(a[s]) show(s+1); };
+window.back = function(s) { show(s-1); };
+
+window.showResult = function() {
+  var r = recommend();
+  var pills = r.features.map(function(f){ return '<span class="mkv-pill">'+f+'</span>'; }).join('');
+  document.getElementById('result').innerHTML =
+    '<div class="mkv-label">Vår anbefaling</div>'+
+    '<div class="mkv-rec-title">'+r.product+'</div>'+
+    '<div class="mkv-rec-sub">Profil: '+r.profil+'</div>'+
+    '<div class="mkv-pills">'+pills+'</div>'+
+    '<div class="mkv-why">'+r.why+'</div>'+
+    '<div class="mkv-ctas">'+
+      '<a href="'+r.link_product+'" target="_blank"><button class="mkv-btn pri">Les mer</button></a>'+
+      '<a href="'+r.link_sortiment+'" target="_blank"><button class="mkv-btn">Se sortiment</button></a>'+
+      '<a href="https://www.moelven.com/no/om-moelven/Kjop-Moelvens-produkter/" target="_blank"><button class="mkv-btn">Finn forhandler</button></a>'+
+    '</div>'+
+    '<div class="mkv-divider"></div>'+
+    '<div class="mkv-alt"><strong>Alternativ:</strong> '+r.alt_why+' <a href="'+r.alt_link+'" target="_blank">Les om '+r.alt_product+'</a></div>'+
+    '<div><button class="mkv-restart" onclick="restart()">Start på nytt</button></div>';
+  show(4);
+};
+
+window.restart = function() {
+  a = {};
+  document.querySelectorAll('.mkv-opt').forEach(function(el){ el.classList.remove('sel'); });
+  ['n0','n1','n2','n3'].forEach(function(id){ var b=document.getElementById(id); if(b) b.disabled=true; });
+  show(0);
+};
+
+function recommend() {
+  var style=a['0'], dir=a['1'], maint=a['2'], budget=a['3'];
+  if(dir==='either') dir=(style==='modern'||style==='nordic')?'standing':'horizontal';
+  var dirLabel=dir==='standing'?'Stående montering':'Liggende montering';
+
+  if(maint==='none') {
+    if(budget==='premium'||budget==='eco') return {product:'Værbitt',profil:dir==='standing'?'Dobbelfals rettkant m/spor':'Skråskåret',link_product:'https://www.moelven.com/no/bygge-og-bo/kledning/vaerbitt/',link_sortiment:'https://www.moelven.com/no/no/fasade-og-utemiljo/kledning/?c2=V%c3%a6rbitt',why:'Cu-impregnert furukledning med lang levetid og 5 tidløse farger. Trenger minimalt vedlikehold og kan gråne naturlig over tid.',features:['Cu-impregnert','Lang levetid','Lite vedlikehold',dirLabel],alt_product:'Termofuru',alt_why:'Trenger ingen overflatebehandling overhodet.',alt_link:'https://www.moelven.com/no/bygge-og-bo/varmebehandlede-produkter/'};
+    return {product:'Heftig PRO+',profil:dir==='standing'?'Dobbelfals rettkant m/spor':'Dobbelfals 60°',link_product:'https://www.moelven.com/no/bygge-og-bo/kledning/heftig-kledning/',link_sortiment:'https://www.moelven.com/no/no/fasade-og-utemiljo/kledning/',why:'Ferdigmalt fra fabrikk med Jotuns beste produkter. Klar til montering – med riktig montering er det lenge til du trenger å tenke på vedlikehold.',features:['Ferdigmalt fra fabrikk','Jotun-behandling','10 års garanti*',dirLabel],alt_product:'Værbitt',alt_why:'Ønsker du naturlige, innfargede toner og minimalt vedlikehold.',alt_link:'https://www.moelven.com/no/bygge-og-bo/kledning/vaerbitt/'};
+  }
+  if(maint==='natural') {
+    if(budget==='premium') return {product:'Malm100',profil:dir==='standing'?'Dobbelfals rettkant m/spor':'Dobbelfals 28°',link_product:'https://www.moelven.com/no/om-moelven/divisjon-wood/moelven-wood-prosjekt-as/malmfuru/',link_sortiment:'https://www.moelven.com/no/no/fasade-og-utemiljo/kledning/',why:'Norsk furu med nærmest 100% malm – gråner vakkert uten overflatebehandling. Sen og tett vekst gir lang levetid. Bestillingsvare.',features:['100% malmfuru','Naturlig gråning','Bestillingsvare','Lang levetid'],alt_product:'Termoask',alt_why:'Kvistfritt og gråner raskt som teak – et eksklusivt alternativ.',alt_link:'https://www.moelven.com/no/inspirasjon-og-konsept/utvendige-fasader/kulturslottet-i-termoask/'};
+    return {product:'Værbitt',profil:dir==='standing'?'Rektangulær':'Skråskåret',link_product:'https://www.moelven.com/no/bygge-og-bo/kledning/vaerbitt/',link_sortiment:'https://www.moelven.com/no/no/fasade-og-utemiljo/kledning/?c2=V%c3%a6rbitt',why:'Cu-impregnert furukledning med innfarget overflate. Kan vedlikeholdes, men kan også gråne naturlig. Tidløse farger som ser ut som de alltid har stått der.',features:['Cu-impregnert','5 naturlige farger','Naturlig gråning mulig',dirLabel],alt_product:'Termofuru',alt_why:'Trenger ingen overflatebehandling og gråner naturlig.',alt_link:'https://www.moelven.com/no/bygge-og-bo/varmebehandlede-produkter/'};
+  }
+  if(budget==='premium') {
+    if(style==='rustic'||style==='classic') return {product:'Sedertre',profil:dir==='standing'?'Rektangulær':'Dobbelfals 28°',link_product:'https://www.moelven.com/no/bygge-og-bo/sedertre/',link_sortiment:'https://www.moelven.com/no/no/fasade-og-utemiljo/kledning/',why:'Eksklusiv, kvistfri kledning som er naturlig motstandsdyktig mot råte og sopp – uten impregnering. Lett å bearbeide og trenger lite vedlikehold.',features:['Naturlig råteresistent','Kvistfri overflate','Lite vedlikehold','Eksklusiv finish'],alt_product:'Termoask',alt_why:'Varmebehandlet for enda bedre holdbarhet, gråner vakkert som teak.',alt_link:'https://www.moelven.com/no/inspirasjon-og-konsept/utvendige-fasader/kulturslottet-i-termoask/'};
+    return {product:'Heftig PRO+ med skjult innfesting',profil:dir==='standing'?'Dobbelfals rettkant m/spor':'Dobbelfals 60°',link_product:'https://www.moelven.com/no/bygge-og-bo/kledning/heftig-kledning/heftig-skjult-innfesting/',link_sortiment:'https://www.moelven.com/no/no/fasade-og-utemiljo/kledning/',why:'Moelvens beste grankledning – ferdig malt med Jotuns toppprodukter og med skjult innfesting for en elegant finish uten synlige skruer.',features:['Beste grankledning','Ferdigmalt m/Jotun','Skjult innfesting','10 års garanti*',dirLabel],alt_product:'Malm100',alt_why:'Eksklusivt og naturnært alternativ – norsk malmfuru som gråner vakkert.',alt_link:'https://www.moelven.com/no/om-moelven/divisjon-wood/moelven-wood-prosjekt-as/malmfuru/'};
+  }
+  if(dir==='standing') return {product:'Heftig PRO – Dobbelfals rettkant m/spor',profil:'Dobbelfals rettkant m/spor',link_product:'https://www.moelven.com/no/bygge-og-bo/kledning/heftig-kledning/',link_sortiment:'https://www.moelven.com/no/no/fasade-og-utemiljo/kledning/?pr=Doublelockstraightmark',why:'Ferdig grunnet og malt grankledning med en stilren, moderne profil. Fritt fargevalg fra Jotuns utendørsfargekart. Kan males om selv ved behov.',features:['Grankledning','Ferdig grunnet og malt','Fritt fargevalg (Jotun)','Stående montering'],alt_product:'Heftig PRO – Dobbelfals tett',alt_why:'Enda mer minimalistisk – egner seg godt om du vil kombinere ulike bredder.',alt_link:'https://www.moelven.com/no/no/fasade-og-utemiljo/kledning/?pr=Doublelock+close'};
+  return {product:'Heftig PRO – Dobbelfals 60°',profil:'Dobbelfals 60°',link_product:'https://www.moelven.com/no/bygge-og-bo/kledning/heftig-kledning/',link_sortiment:'https://www.moelven.com/no/no/fasade-og-utemiljo/kledning/?pr=Doublelock+60',why:'En av Norges mest solgte kledningsprofiler – med god grunn. Ferdig grunnet og malt fra fabrikk. Fritt fargevalg fra Jotun. Kan males om selv ved behov.',features:['Grankledning','Norges mest solgte profil','Ferdig grunnet og malt','Liggende montering'],alt_product:'Heftig PRO – Dobbelfals 28°',alt_why:'Litt mer moderne og flatt liggende uttrykk.',alt_link:'https://www.moelven.com/no/no/fasade-og-utemiljo/kledning/?pr=Doublelock+28'};
+}
+</script>
