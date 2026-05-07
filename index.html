@@ -61,21 +61,19 @@ body { background: #fff; }
 .mkv-why { font-size: 14px; color: var(--muted); line-height: 1.65; padding: 14px 16px; background: var(--bg2); border-left: 3px solid var(--orange); margin-bottom: 1rem; }
 .mkv-pills { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1rem; }
 .mkv-pill { font-size: 12px; padding: 4px 12px; border-radius: 20px; border: 1px solid var(--border); color: var(--muted); }
-
-/* Farger */
+.mkv-product-img { width: 100%; max-height: 220px; object-fit: cover; border-radius: 6px; margin-bottom: 1rem; display: block; }
 .mkv-colors { margin-bottom: 1rem; padding: 14px 16px; border-radius: 6px; border: 1px solid var(--border); background: var(--bg2); }
 .mkv-colors-label { font-size: 12px; font-weight: 600; color: var(--text); margin-bottom: 10px; }
 .mkv-color-chips { display: flex; gap: 10px; flex-wrap: wrap; align-items: flex-start; }
-.mkv-chip { display: flex; flex-direction: column; align-items: center; gap: 5px; text-decoration: none; }
+.mkv-chip { display: flex; flex-direction: column; align-items: center; gap: 5px; }
 .mkv-chip img { width: 48px; height: 48px; border-radius: 4px; border: 1px solid var(--border); object-fit: cover; display: block; }
 .mkv-chip span { font-size: 11px; color: var(--muted); text-align: center; }
-.mkv-chip:hover img { border-color: var(--teal); }
 .mkv-colors-note { font-size: 12px; color: var(--muted); margin-top: 10px; line-height: 1.5; }
 .mkv-colors-note a { color: var(--teal); }
-.mkv-colors-free { font-size: 13px; color: var(--muted); line-height: 1.55; }
-.mkv-colors-free a { color: var(--teal); }
-
-/* Egeninnsats */
+.mkv-colors-free { display: flex; align-items: center; gap: 12px; }
+.mkv-colors-free img { width: 48px; height: 48px; flex-shrink: 0; }
+.mkv-colors-free-text { font-size: 13px; color: var(--muted); line-height: 1.55; }
+.mkv-colors-free-text a { color: var(--teal); }
 .mkv-effort { margin-bottom: 1rem; padding: 14px 16px; border-radius: 6px; border: 1px solid var(--border); background: var(--bg2); }
 .mkv-effort-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
 .mkv-effort-label { font-size: 12px; font-weight: 600; color: var(--text); }
@@ -83,18 +81,13 @@ body { background: #fff; }
 .mkv-effort-bar-bg { height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; }
 .mkv-effort-bar-fill { height: 6px; border-radius: 3px; background: var(--teal); }
 .mkv-effort-human { font-size: 12px; color: var(--muted); margin-top: 6px; font-style: italic; }
-
-/* Værkort */
 .mkv-weather { display: flex; align-items: flex-start; gap: 10px; padding: 12px 14px; background: var(--green-bg); border-radius: 6px; margin-bottom: 1rem; border: 1px solid #c0ddd8; }
 .mkv-weather-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
 .mkv-weather-text { font-size: 13px; color: var(--green); line-height: 1.55; }
-
-/* Nudge */
 .mkv-nudge { padding: 14px 16px; background: var(--orange-bg); border-left: 3px solid var(--orange); border-radius: 0 6px 6px 0; margin-bottom: 1rem; }
 .mkv-nudge-title { font-size: 13px; font-weight: 600; color: #8a4010; margin-bottom: 4px; }
 .mkv-nudge-text { font-size: 13px; color: #8a4010; line-height: 1.55; }
 .mkv-nudge-text a { color: #8a4010; font-weight: 600; }
-
 .mkv-profiles-label { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 8px; }
 .mkv-profile-list { display: flex; flex-direction: column; gap: 6px; margin-bottom: 1.25rem; }
 .mkv-profile-item { font-size: 13px; color: var(--muted); padding: 8px 12px; background: var(--bg2); border-radius: 4px; border: 1px solid var(--border); }
@@ -122,7 +115,6 @@ body { background: #fff; }
     <div class="mkv-dot" id="d4"></div>
   </div>
 
-  <!-- STEG 1: Stil -->
   <div class="mkv-screen on" id="s0">
     <p class="mkv-q">Hva beskriver stilen på huset ditt best?</p>
     <p class="mkv-hint">Stilen påvirker hvilken profil som passer best til huset ditt.</p>
@@ -138,7 +130,6 @@ body { background: #fff; }
     </div>
   </div>
 
-  <!-- STEG 2: Retning -->
   <div class="mkv-screen" id="s1">
     <p class="mkv-q">Stående eller liggende kledning?</p>
     <p class="mkv-hint">Retningen påvirker husets visuelle uttrykk. Stående gir et moderne og vertikalt preg, liggende er mer klassisk og rolig.</p>
@@ -154,7 +145,6 @@ body { background: #fff; }
     </div>
   </div>
 
-  <!-- STEG 3: Utseende -->
   <div class="mkv-screen" id="s2">
     <p class="mkv-q">Hvordan vil du at kledningen skal se ut?</p>
     <p class="mkv-hint">Dette handler om overflaten – om trestrukturen skal synes eller ikke.</p>
@@ -170,7 +160,6 @@ body { background: #fff; }
     </div>
   </div>
 
-  <!-- STEG 4: Vedlikehold -->
   <div class="mkv-screen" id="s3">
     <p class="mkv-q">Hvor mye vedlikehold er du villig til?</p>
     <p class="mkv-hint">Dette avgjør hvilken overflatebehandling som passer deg best.</p>
@@ -187,7 +176,6 @@ body { background: #fff; }
     </div>
   </div>
 
-  <!-- STEG 5: Økonomi -->
   <div class="mkv-screen" id="s4">
     <p class="mkv-q">Hva er viktigst for deg i valget?</p>
     <p class="mkv-hint">Vi hjelper deg å finne riktig balanse mellom innkjøpspris og langsiktig kostnad.</p>
@@ -203,7 +191,6 @@ body { background: #fff; }
     </div>
   </div>
 
-  <!-- RESULTAT -->
   <div class="mkv-screen" id="s5">
     <div id="result"></div>
   </div>
@@ -212,24 +199,41 @@ body { background: #fff; }
 
 <script>
 var a = {};
+var FARGEIKON = "data:image/png;base64,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";
 
 var vaerBittFarger = [
-  { navn:'Gråna',  img:'https://www.moelven.com/globalassets/moelven-wood-as/eksterior/kledning/varbitt/grana_sort_cmyk-m.jpg' },
-  { navn:'Herja',  img:'https://www.moelven.com/globalassets/moelven-wood-as/eksterior/kledning/varbitt/herja_sort_cmyk-m.jpg' },
-  { navn:'Fura',   img:'https://www.moelven.com/globalassets/moelven-wood-as/eksterior/kledning/varbitt/fura_sort_cmyk-m.jpg' },
-  { navn:'Barka',  img:'https://www.moelven.com/globalassets/moelven-wood-as/eksterior/kledning/varbitt/barka_sort_cmyk-m.jpg' },
-  { navn:'Garva',  img:'https://www.moelven.com/globalassets/moelven-wood-as/eksterior/kledning/varbitt/garva_sort_cmyk-m.jpg' }
+  { navn:'Gråna', img:'https://www.moelven.com/globalassets/moelven-wood-as/eksterior/kledning/varbitt/grana_sort_cmyk-m.jpg' },
+  { navn:'Herja', img:'https://www.moelven.com/globalassets/moelven-wood-as/eksterior/kledning/varbitt/herja_sort_cmyk-m.jpg' },
+  { navn:'Fura',  img:'https://www.moelven.com/globalassets/moelven-wood-as/eksterior/kledning/varbitt/fura_sort_cmyk-m.jpg' },
+  { navn:'Barka', img:'https://www.moelven.com/globalassets/moelven-wood-as/eksterior/kledning/varbitt/barka_sort_cmyk-m.jpg' },
+  { navn:'Garva', img:'https://www.moelven.com/globalassets/moelven-wood-as/eksterior/kledning/varbitt/garva_sort_cmyk-m.jpg' }
 ];
 
 var kledninger = {
-  'Ubehandlet gran': { behandling:'Ubehandlet', utseende:'Ubehandlet', foerste:'Behandles umiddelbart etter montering', kostnad:'Lav',    timer:75, treslag:'Gran', ferdig:false, link:'https://www.moelven.com/no/no/fasade-og-utemiljo/kledning/' },
-  'Heftig BAS':      { behandling:'Grunnet', utseende:'Dekkende', foerste:'Første malingssesong', kostnad:'Lav',    timer:50, treslag:'Gran', ferdig:false, link:'https://www.moelven.com/no/bygge-og-bo/kledning/heftig-kledning/' },
-  'Heftig SYN':      { behandling:'Grunnet + 1 strøk TREBITT beis', utseende:'Transparent', foerste:'Innen 5 år', kostnad:'Middels', timer:25, treslag:'Gran', ferdig:true,  link:'https://www.moelven.com/no/bygge-og-bo/kledning/heftig-kledning/' },
-  'Heftig EKO':      { behandling:'2 strøk DRYGOLIN Power Clean', utseende:'Dekkende', foerste:'Innen 3 år', kostnad:'Middels', timer:25, treslag:'Gran', ferdig:true,  link:'https://www.moelven.com/no/bygge-og-bo/kledning/heftig-kledning/' },
-  'Heftig PRO':      { behandling:'Grunnet med Jotun VISIR + 1 strøk DRYGOLIN Nordic Extreme', utseende:'Dekkende', foerste:'Innen 5 år', kostnad:'Middels', timer:25, treslag:'Gran', ferdig:true,  link:'https://www.moelven.com/no/bygge-og-bo/kledning/heftig-kledning/' },
-  'Heftig PRO+':     { behandling:'Grunnet med Jotun VISIR + 2 strøk DRYGOLIN Nordic Extreme', utseende:'Dekkende', foerste:'Innen 8 år (10 år ved Heftig-ambassadør)', kostnad:'Høy', timer:2, treslag:'Gran', ferdig:true,  link:'https://www.moelven.com/no/bygge-og-bo/kledning/heftig-kledning/' },
-  'Værbitt':         { behandling:'Cu-impregnert + 1 strøk beis', utseende:'Transparent', foerste:'Kun ved behov for å oppfriske farge', kostnad:'Høy',    timer:2,  treslag:'Furu', ferdig:true,  link:'https://www.moelven.com/no/bygge-og-bo/kledning/vaerbitt/' },
-  'Termofuru':       { behandling:'Varmebehandlet – ingen overflatebehandling nødvendig', utseende:'Ubehandlet', foerste:'Kun ved estetiske grunner', kostnad:'Høy', timer:2, treslag:'Furu', ferdig:true,  link:'https://www.moelven.com/no/bygge-og-bo/varmebehandlede-produkter/' }
+  'Ubehandlet gran': { behandling:'Ubehandlet', utseende:'Ubehandlet', foerste:'Behandles umiddelbart etter montering', kostnad:'Lav',    timer:75, treslag:'Gran', ferdig:false,
+    produktbilde:'https://www.moelven.com/globalassets/moelven-wood-as/bygge-og-bo/kledning/kledningsartikkel/rekt-heftig-syn-eldet-gra.jpg',
+    link:'https://www.moelven.com/no/no/fasade-og-utemiljo/kledning/' },
+  'Heftig BAS':      { behandling:'Grunnet', utseende:'Dekkende', foerste:'Første malingssesong', kostnad:'Lav', timer:50, treslag:'Gran', ferdig:false,
+    produktbilde:'https://www.moelven.com/globalassets/moelven-wood-as/bygge-og-bo/kledning/kledningsartikkel/sveitser-m-dobbelstaff-heftig-pro-eggehvit.jpg',
+    link:'https://www.moelven.com/no/bygge-og-bo/kledning/heftig-kledning/' },
+  'Heftig SYN':      { behandling:'Grunnet + 1 strøk TREBITT beis', utseende:'Transparent', foerste:'Innen 5 år', kostnad:'Middels', timer:25, treslag:'Gran', ferdig:true,
+    produktbilde:'https://www.moelven.com/globalassets/moelven-wood-as/bygge-og-bo/kledning/kledningsartikkel/rekt-heftig-syn-eldet-gra.jpg',
+    link:'https://www.moelven.com/no/bygge-og-bo/kledning/heftig-kledning/' },
+  'Heftig EKO':      { behandling:'2 strøk DRYGOLIN Power Clean', utseende:'Dekkende', foerste:'Innen 3 år', kostnad:'Middels', timer:25, treslag:'Gran', ferdig:true,
+    produktbilde:'https://www.moelven.com/globalassets/moelven-wood-as/bygge-og-bo/kledning/kledningsartikkel/df-60-skagegul-foto-jotun.jpg',
+    link:'https://www.moelven.com/no/bygge-og-bo/kledning/heftig-kledning/' },
+  'Heftig PRO':      { behandling:'Grunnet med Jotun VISIR + 1 strøk DRYGOLIN Nordic Extreme', utseende:'Dekkende', foerste:'Innen 5 år', kostnad:'Middels', timer:25, treslag:'Gran', ferdig:true,
+    produktbilde:'https://www.moelven.com/globalassets/moelven-wood-as/bygge-og-bo/kledning/kledningsartikkel/df-rett-labrador.jpg',
+    link:'https://www.moelven.com/no/bygge-og-bo/kledning/heftig-kledning/' },
+  'Heftig PRO+':     { behandling:'Grunnet med Jotun VISIR + 2 strøk DRYGOLIN Nordic Extreme', utseende:'Dekkende', foerste:'Innen 8 år (10 år ved Heftig-ambassadør)', kostnad:'Høy', timer:2, treslag:'Gran', ferdig:true,
+    produktbilde:'https://www.moelven.com/globalassets/moelven-wood-as/bygge-og-bo/kledning/kledningsartikkel/600x381-related-bilder/4.jpg',
+    link:'https://www.moelven.com/no/bygge-og-bo/kledning/heftig-kledning/' },
+  'Værbitt':         { behandling:'Cu-impregnert + 1 strøk beis', utseende:'Transparent', foerste:'Kun ved behov for å oppfriske farge', kostnad:'Høy', timer:2, treslag:'Furu', ferdig:true,
+    produktbilde:'https://www.moelven.com/globalassets/moelven-wood-as/bygge-og-bo/kledning/kledningsartikkel/varbitt-fura-garmotunet.jpg',
+    link:'https://www.moelven.com/no/bygge-og-bo/kledning/vaerbitt/' },
+  'Termofuru':       { behandling:'Varmebehandlet – ingen overflatebehandling nødvendig', utseende:'Ubehandlet', foerste:'Kun ved estetiske grunner', kostnad:'Høy', timer:2, treslag:'Furu', ferdig:true,
+    produktbilde:'https://www.moelven.com/globalassets/moelven-wood-as/bygge-og-bo/kledning/kledningsartikkel/df-tett-malm-100-jernvitrol.jpg',
+    link:'https://www.moelven.com/no/bygge-og-bo/varmebehandlede-produkter/' }
 };
 
 function timerTekst(timer) {
@@ -267,32 +271,33 @@ var altTexts = {
   'Termofuru':       { navn:'Værbitt',     tekst:'Værbitt er Cu-impregnert furukledning som også krever minimalt vedlikehold og gir et naturlig uttrykk.' }
 };
 
+// Profiler fra rettet Excel - l=liggende, s=stående
 var profiler = [
-  { navn:'Rektangulær',                         l:1,s:0, tr:1,na:1,ar:0,mo:0, iv:0,it:0 },
-  { navn:'Dobbelfals rett kant',                l:1,s:0, tr:1,na:1,ar:0,mo:0, iv:0,it:0 },
-  { navn:'Dobbelfals tett',                     l:1,s:0, tr:0,na:0,ar:1,mo:1, iv:0,it:0 },
-  { navn:'Skjult innfesting dobbelfals tett',   l:1,s:0, tr:0,na:0,ar:1,mo:1, iv:1,it:1 },
-  { navn:'Dobbelfals sprekk 5 mm',              l:1,s:0, tr:0,na:0,ar:1,mo:1, iv:1,it:1 },
-  { navn:'Skjult innfesting dobbelfals sprekk', l:1,s:0, tr:0,na:0,ar:1,mo:1, iv:1,it:1 },
-  { navn:'Dobbelfals rett kant med spor',       l:1,s:0, tr:0,na:0,ar:1,mo:1, iv:0,it:1 },
-  { navn:'Tiur',                                l:1,s:0, tr:1,na:1,ar:0,mo:0, iv:1,it:1 },
-  { navn:'Barokk-kledning',                     l:1,s:0, tr:1,na:1,ar:0,mo:0, iv:1,it:1 },
-  { navn:'Barokk-lekt',                         l:1,s:0, tr:1,na:1,ar:0,mo:0, iv:1,it:1 },
-  { navn:'Sveitser enkel staff',                l:1,s:0, tr:1,na:1,ar:0,mo:0, iv:1,it:1 },
-  { navn:'Sveitser dobbelstaff',                l:1,s:0, tr:1,na:1,ar:0,mo:0, iv:1,it:1 },
-  { navn:'Rustikk rund kant',                   l:1,s:0, tr:1,na:1,ar:0,mo:0, iv:1,it:1 },
-  { navn:'Rustikk med hulkil',                  l:1,s:0, tr:1,na:1,ar:0,mo:0, iv:1,it:1 },
-  { navn:'Fas',                                 l:1,s:0, tr:1,na:1,ar:0,mo:0, iv:1,it:1 },
-  { navn:'Kragerø',                             l:1,s:0, tr:1,na:1,ar:0,mo:0, iv:1,it:1 },
-  { navn:'Empire',                              l:1,s:0, tr:1,na:1,ar:0,mo:0, iv:1,it:1 },
-  { navn:'Enkelfals',                           l:0,s:1, tr:1,na:1,ar:0,mo:0, iv:0,it:1 },
-  { navn:'Enkelfals m/staff',                   l:0,s:1, tr:1,na:1,ar:0,mo:0, iv:1,it:1 },
-  { navn:'Dobbelfals ny type 60 gr',            l:0,s:1, tr:0,na:0,ar:1,mo:1, iv:0,it:0 },
-  { navn:'Skjult innfesting dobbelfals 60 gr',  l:0,s:1, tr:0,na:0,ar:1,mo:1, iv:1,it:1 },
-  { navn:'Dobbelfals gammel type 28 gr',        l:0,s:1, tr:1,na:1,ar:0,mo:0, iv:0,it:1 },
-  { navn:'Dobbelfals m/staff 28 gr',            l:0,s:1, tr:1,na:1,ar:0,mo:0, iv:1,it:1 },
-  { navn:'Vestlands',                           l:0,s:1, tr:1,na:1,ar:0,mo:0, iv:1,it:1 },
-  { navn:'Skråskåret',                          l:0,s:1, tr:1,na:1,ar:0,mo:0, iv:0,it:1 },
+  { navn:'Rektangulær',                         l:0,s:1, tr:1,na:1,ar:0,mo:0, iv:0,it:0 },
+  { navn:'Dobbelfals rett kant',                l:0,s:1, tr:1,na:1,ar:0,mo:0, iv:0,it:0 },
+  { navn:'Dobbelfals tett',                     l:0,s:1, tr:0,na:0,ar:1,mo:1, iv:0,it:0 },
+  { navn:'Skjult innfesting dobbelfals tett',   l:0,s:1, tr:0,na:0,ar:1,mo:1, iv:1,it:1 },
+  { navn:'Dobbelfals sprekk 5 mm',              l:0,s:1, tr:0,na:0,ar:1,mo:1, iv:1,it:1 },
+  { navn:'Skjult innfesting dobbelfals sprekk', l:0,s:1, tr:0,na:0,ar:1,mo:1, iv:1,it:1 },
+  { navn:'Dobbelfals rett kant med spor',       l:0,s:1, tr:0,na:0,ar:1,mo:1, iv:0,it:1 },
+  { navn:'Tiur',                                l:0,s:1, tr:1,na:1,ar:0,mo:0, iv:1,it:1 },
+  { navn:'Barokk-kledning',                     l:0,s:1, tr:1,na:1,ar:0,mo:0, iv:1,it:1 },
+  { navn:'Barokk-lekt',                         l:0,s:1, tr:1,na:1,ar:0,mo:0, iv:1,it:1 },
+  { navn:'Sveitser enkel staff',                l:0,s:1, tr:1,na:1,ar:0,mo:0, iv:1,it:1 },
+  { navn:'Sveitser dobbelstaff',                l:0,s:1, tr:1,na:1,ar:0,mo:0, iv:1,it:1 },
+  { navn:'Rustikk rund kant',                   l:0,s:1, tr:1,na:1,ar:0,mo:0, iv:1,it:1 },
+  { navn:'Rustikk med hulkil',                  l:0,s:1, tr:1,na:1,ar:0,mo:0, iv:1,it:1 },
+  { navn:'Fas',                                 l:0,s:1, tr:1,na:1,ar:0,mo:0, iv:1,it:1 },
+  { navn:'Kragerø',                             l:0,s:1, tr:1,na:1,ar:0,mo:0, iv:1,it:1 },
+  { navn:'Empire',                              l:0,s:1, tr:1,na:1,ar:0,mo:0, iv:1,it:1 },
+  { navn:'Enkelfals',                           l:1,s:0, tr:1,na:1,ar:0,mo:0, iv:0,it:1 },
+  { navn:'Enkelfals m/staff',                   l:1,s:0, tr:1,na:1,ar:0,mo:0, iv:1,it:1 },
+  { navn:'Dobbelfals ny type 60 gr',            l:1,s:0, tr:0,na:0,ar:1,mo:1, iv:0,it:0 },
+  { navn:'Skjult innfesting dobbelfals 60 gr',  l:1,s:0, tr:0,na:0,ar:1,mo:1, iv:1,it:1 },
+  { navn:'Dobbelfals gammel type 28 gr',        l:1,s:0, tr:1,na:1,ar:0,mo:0, iv:0,it:1 },
+  { navn:'Dobbelfals m/staff 28 gr',            l:1,s:0, tr:1,na:1,ar:0,mo:0, iv:1,it:1 },
+  { navn:'Vestlands',                           l:1,s:0, tr:1,na:1,ar:0,mo:0, iv:1,it:1 },
+  { navn:'Skråskåret',                          l:1,s:0, tr:1,na:1,ar:0,mo:0, iv:0,it:1 },
   { navn:'Buer 60 gr',                          l:1,s:1, tr:1,na:1,ar:0,mo:0, iv:0,it:1 },
   { navn:'Dobbelfals 60 gr med spor',           l:1,s:1, tr:0,na:0,ar:1,mo:1, iv:0,it:1 },
   { navn:'Lektekledning 45x45',                 l:1,s:1, tr:0,na:0,ar:1,mo:1, iv:0,it:1 },
@@ -340,128 +345,105 @@ window.restart = function() {
 };
 
 function recommend() {
-  var stil     = a['0'];
-  var retning  = a['1'];
-  var utseende = a['2'];
-  var vedl     = a['3'];
-  var kost     = a['4'];
-
-  if(retning === 'begge') retning = (stil==='moderne'||stil==='arkitektonisk') ? 'stående' : 'liggende';
-
+  var stil=a['0'], retning=a['1'], utseende=a['2'], vedl=a['3'], kost=a['4'];
+  if(retning==='begge') retning=(stil==='moderne'||stil==='arkitektonisk')?'stående':'liggende';
   var navn;
-  if(utseende === 'Ubehandlet') {
-    navn = (kost==='høy'||kost==='medium') ? 'Termofuru' : 'Ubehandlet gran';
-  } else if(utseende === 'Transparent') {
-    navn = (kost==='lav'&&(vedl==='mye'||vedl==='middels')) ? 'Heftig SYN' : 'Værbitt';
+  if(utseende==='Ubehandlet') {
+    navn=(kost==='høy'||kost==='medium')?'Termofuru':'Ubehandlet gran';
+  } else if(utseende==='Transparent') {
+    navn=(kost==='lav'&&(vedl==='mye'||vedl==='middels'))?'Heftig SYN':'Værbitt';
   } else {
-    if(vedl==='ingen')       navn = kost==='høy' ? 'Heftig PRO+' : 'Heftig PRO';
-    else if(vedl==='noe')    navn = kost==='høy' ? 'Heftig PRO+' : kost==='medium' ? 'Heftig PRO' : 'Heftig EKO';
-    else if(vedl==='middels') navn = kost==='høy' ? 'Heftig PRO' : kost==='medium' ? 'Heftig EKO' : 'Heftig BAS';
-    else                     navn = kost==='høy' ? 'Heftig PRO' : kost==='medium' ? 'Heftig EKO' : 'Heftig BAS';
+    if(vedl==='ingen')        navn=kost==='høy'?'Heftig PRO+':'Heftig PRO';
+    else if(vedl==='noe')     navn=kost==='høy'?'Heftig PRO+':kost==='medium'?'Heftig PRO':'Heftig EKO';
+    else if(vedl==='middels') navn=kost==='høy'?'Heftig PRO':kost==='medium'?'Heftig EKO':'Heftig BAS';
+    else                      navn=kost==='høy'?'Heftig PRO':kost==='medium'?'Heftig EKO':'Heftig BAS';
   }
-
-  var k = kledninger[navn];
-  var erV = navn==='Værbitt', erT = navn==='Termofuru';
-
-  var passendeProfiler = profiler.filter(function(p) {
-    var retOK = (retning==='liggende'&&p.l)||(retning==='stående'&&p.s);
+  var k=kledninger[navn];
+  var erV=navn==='Værbitt', erT=navn==='Termofuru';
+  var passendeProfiler=profiler.filter(function(p) {
+    var retOK=(retning==='liggende'&&p.l)||(retning==='stående'&&p.s);
     if(!retOK) return false;
-    var stilOK = (stil==='tradisjonelt'&&p.tr)||(stil==='naturlig'&&p.na)||(stil==='arkitektonisk'&&p.ar)||(stil==='moderne'&&p.mo);
+    var stilOK=(stil==='tradisjonelt'&&p.tr)||(stil==='naturlig'&&p.na)||(stil==='arkitektonisk'&&p.ar)||(stil==='moderne'&&p.mo);
     if(!stilOK) return false;
-    if(erV && p.iv) return false;
-    if(erT && p.it) return false;
+    if(erV&&p.iv) return false;
+    if(erT&&p.it) return false;
     return true;
-  }).slice(0, 3);
-
-  return { navn:navn, k:k, retning:retning, utseende:utseende, profiler:passendeProfiler };
+  }).slice(0,3);
+  return {navn:navn,k:k,retning:retning,utseende:utseende,profiler:passendeProfiler};
 }
 
 function colorBlock(navn) {
-  var k = kledninger[navn];
-  if(navn === 'Værbitt') {
-    var chips = vaerBittFarger.map(function(f) {
-      return '<a class="mkv-chip" href="https://www.moelven.com/no/bygge-og-bo/kledning/vaerbitt/" target="_blank">'+
-        '<img src="'+f.img+'" alt="'+f.navn+'" onerror="this.style.display=\'none\'">'+
-        '<span>'+f.navn+'</span>'+
-      '</a>';
+  var k=kledninger[navn];
+  if(navn==='Værbitt') {
+    var chips=vaerBittFarger.map(function(f) {
+      return '<div class="mkv-chip"><img src="'+f.img+'" alt="'+f.navn+'" onerror="this.style.visibility=\'hidden\'"><span>'+f.navn+'</span></div>';
     }).join('');
     return '<div class="mkv-colors">'+
-      '<div class="mkv-colors-label">5 tidløse farger</div>'+
+      '<div class="mkv-colors-label">5 ulike farger</div>'+
       '<div class="mkv-color-chips">'+chips+'</div>'+
-      '<div class="mkv-colors-note">Klikk på en farge for å se Værbitt-sortimentet. <a href="https://www.moelven.com/no/bygge-og-bo/kledning/vaerbitt/" target="_blank">Les mer om Værbitt →</a></div>'+
+      '<div class="mkv-colors-note">Se hele utvalget og finn riktig farge. <a href="https://www.moelven.com/no/bygge-og-bo/kledning/vaerbitt/" target="_blank">Les mer om Værbitt →</a></div>'+
     '</div>';
-  } else if(k.ferdig && navn !== 'Termofuru') {
+  } else if(k.ferdig && navn!=='Termofuru') {
     return '<div class="mkv-colors">'+
       '<div class="mkv-colors-label">Fargevalg</div>'+
-      '<div class="mkv-colors-free">Fritt fargevalg fra <a href="https://www.jotun.com/no-no/decorative/colours/colour-charts/exterior" target="_blank">Jotuns utendørsfargekart</a> – velg akkurat den fargen som passer huset ditt.</div>'+
+      '<div class="mkv-colors-free">'+
+        '<img src="'+FARGEIKON+'" alt="Fritt fargevalg">'+
+        '<div class="mkv-colors-free-text">Fritt fargevalg fra <a href="https://www.jotun.com/no-no/decorative/colours/colour-charts/exterior" target="_blank">Jotuns utendørsfargekart</a> – velg akkurat den fargen som passer huset ditt.</div>'+
+      '</div>'+
     '</div>';
-  } else if(navn === 'Termofuru') {
+  } else if(navn==='Termofuru') {
     return '<div class="mkv-colors">'+
       '<div class="mkv-colors-label">Fargevalg</div>'+
-      '<div class="mkv-colors-free">Gråner naturlig til en sølvgrå patina over tid. Kan oljes med spesialolje for å bevare original farge.</div>'+
+      '<div class="mkv-colors-free-text">Gråner naturlig til en sølvgrå patina over tid. Kan oljes med spesialolje for å bevare original farge.</div>'+
     '</div>';
   } else {
     return '<div class="mkv-colors">'+
       '<div class="mkv-colors-label">Fargevalg</div>'+
-      '<div class="mkv-colors-free">Velg selv hvilken maling eller beis du vil bruke. Grunninga gir et godt underlag for alle typer overflatebehandling.</div>'+
+      '<div class="mkv-colors-free-text">Velg selv hvilken maling eller beis du vil bruke. Grunninga gir et godt underlag for alle typer overflatebehandling.</div>'+
     '</div>';
   }
 }
 
 function effortBar(timer) {
-  var pct = Math.round((timer / 75) * 100);
+  var pct=Math.round((timer/75)*100);
   return '<div class="mkv-effort">'+
-    '<div class="mkv-effort-top">'+
-      '<span class="mkv-effort-label">Egeninnsats over 5 år</span>'+
-      '<span class="mkv-effort-hours">'+timer+' timer</span>'+
-    '</div>'+
+    '<div class="mkv-effort-top"><span class="mkv-effort-label">Egeninnsats over 5 år</span><span class="mkv-effort-hours">'+timer+' timer</span></div>'+
     '<div class="mkv-effort-bar-bg"><div class="mkv-effort-bar-fill" style="width:'+pct+'%"></div></div>'+
     '<div class="mkv-effort-human">'+timerTekst(timer)+'</div>'+
   '</div>';
 }
 
 function renderResult(r) {
-  var k = r.k;
-
-  var pills = [
+  var k=r.k;
+  var pills=[
     r.retning==='liggende'?'Liggende montering':'Stående montering',
     'Kostnadsnivå: '+k.kostnad,
     'Første behandling: '+k.foerste
   ].map(function(f){ return '<span class="mkv-pill">'+f+'</span>'; }).join('');
-
-  var tags = '<span class="mkv-tag">'+k.treslag+'</span><span class="mkv-tag">'+k.utseende+'</span>';
-
-  var weatherHtml = k.ferdig
-    ? '<div class="mkv-weather">'+
-        '<div class="mkv-weather-icon">☁️</div>'+
-        '<div class="mkv-weather-text">Ferdigbehandlet fra fabrikk – klar til montering uansett vær. Du slipper å vente på tørt vær eller stresse med å rekke å male før vinteren.</div>'+
-      '</div>'
-    : '';
-
-  var nudgeHtml = '';
-  if(nudge[r.navn]) {
-    var n = nudge[r.navn];
-    nudgeHtml = '<div class="mkv-nudge">'+
-      '<div class="mkv-nudge-title">Tips: vurdér '+n.oppTil+'</div>'+
-      '<div class="mkv-nudge-text">'+n.tekst+' <a href="'+kledninger[n.oppTil].link+'" target="_blank">Les om '+n.oppTil+' →</a></div>'+
-    '</div>';
+  var tags='<span class="mkv-tag">'+k.treslag+'</span><span class="mkv-tag">'+k.utseende+'</span>';
+  var produktImg=k.produktbilde?'<img class="mkv-product-img" src="'+k.produktbilde+'" alt="'+r.navn+'" onerror="this.style.visibility=\'hidden\'">':'';
+  var weatherHtml=k.ferdig
+    ?'<div class="mkv-weather"><div class="mkv-weather-icon">☁️</div><div class="mkv-weather-text">Ferdigbehandlet fra fabrikk – klar til montering uansett vær. Du slipper å vente på tørt vær eller stresse med å rekke å male før vinteren.</div></div>'
+    :'';
+  var nudgeHtml='';
+  if(nudge[r.navn]){
+    var n=nudge[r.navn];
+    nudgeHtml='<div class="mkv-nudge"><div class="mkv-nudge-title">Tips: vurdér '+n.oppTil+'</div><div class="mkv-nudge-text">'+n.tekst+' <a href="'+kledninger[n.oppTil].link+'" target="_blank">Les om '+n.oppTil+' →</a></div></div>';
   }
-
-  var profilHtml = r.profiler.length>0
-    ? '<p class="mkv-profiles-label">Anbefalte profiler til dette huset:</p><div class="mkv-profile-list">'+
+  var profilHtml=r.profiler.length>0
+    ?'<p class="mkv-profiles-label">Anbefalte profiler til dette huset:</p><div class="mkv-profile-list">'+
       r.profiler.map(function(p){
-        var ret = (p.l&&p.s)?'Liggende eller stående':p.l?'Liggende':'Stående';
+        var ret=(p.l&&p.s)?'Liggende eller stående':p.l?'Liggende':'Stående';
         return '<div class="mkv-profile-item"><strong>'+p.navn+'</strong> – '+ret+'</div>';
       }).join('')+'</div>'
-    : '';
-
-  var alt = altTexts[r.navn];
-
+    :'';
+  var alt=altTexts[r.navn];
   return '<div class="mkv-label">Vår anbefaling til deg</div>'+
     '<div class="mkv-rec-title">'+r.navn+'</div>'+
     '<div class="mkv-rec-sub">'+k.behandling+'</div>'+
     tags+
     '<div class="mkv-pills">'+pills+'</div>'+
+    produktImg+
     effortBar(k.timer)+
     colorBlock(r.navn)+
     weatherHtml+
