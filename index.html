@@ -64,14 +64,14 @@ body { background: #fff; }
 .mkv-product-img { width: 100%; max-height: 220px; object-fit: cover; border-radius: 6px; margin-bottom: 1rem; display: block; }
 .mkv-colors { margin-bottom: 1rem; padding: 14px 16px; border-radius: 6px; border: 1px solid var(--border); background: var(--bg2); }
 .mkv-colors-label { font-size: 12px; font-weight: 600; color: var(--text); margin-bottom: 10px; }
-.mkv-color-chips { display: flex; gap: 10px; flex-wrap: wrap; align-items: flex-start; }
-.mkv-chip { display: flex; flex-direction: column; align-items: center; gap: 5px; }
-.mkv-chip img { width: 48px; height: 48px; border-radius: 4px; border: 1px solid var(--border); object-fit: cover; display: block; }
+.mkv-color-chips { display: flex; gap: 16px; flex-wrap: wrap; align-items: flex-start; }
+.mkv-chip { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.mkv-chip img { width: 56px; height: 56px; border-radius: 50%; border: 2px solid var(--border); object-fit: cover; display: block; }
 .mkv-chip span { font-size: 11px; color: var(--muted); text-align: center; }
-.mkv-colors-note { font-size: 12px; color: var(--muted); margin-top: 10px; line-height: 1.5; }
+.mkv-colors-note { font-size: 12px; color: var(--muted); margin-top: 12px; line-height: 1.5; }
 .mkv-colors-note a { color: var(--teal); }
-.mkv-colors-free { display: flex; align-items: center; gap: 12px; }
-.mkv-colors-free img { width: 48px; height: 48px; flex-shrink: 0; }
+.mkv-colors-free { display: flex; align-items: center; gap: 16px; }
+.mkv-colors-free img { width: 56px; height: 56px; flex-shrink: 0; border-radius: 50%; }
 .mkv-colors-free-text { font-size: 13px; color: var(--muted); line-height: 1.55; }
 .mkv-colors-free-text a { color: var(--teal); }
 .mkv-effort { margin-bottom: 1rem; padding: 14px 16px; border-radius: 6px; border: 1px solid var(--border); background: var(--bg2); }
@@ -459,6 +459,23 @@ function renderResult(r) {
     '<div class="mkv-alt"><strong>Alternativ:</strong> '+alt.tekst+' <a href="'+kledninger[alt.navn].link+'" target="_blank">Les om '+alt.navn+' →</a></div>'+
     '<button class="mkv-restart" onclick="restart()">Start på nytt</button>';
 }
+
+// Auto-resize: send høyde til foreldre-siden etter hver skjermbytte
+function sendHeight() {
+  var h = document.body.scrollHeight;
+  window.parent.postMessage({ mkvHeight: h }, '*');
+}
+
+// Kjør etter at innhold er rendret
+var origShow = show;
+show = function(n) {
+  origShow(n);
+  setTimeout(sendHeight, 100);
+};
+
+// Kjør ved oppstart og ved bildejustering
+window.addEventListener('load', sendHeight);
+window.addEventListener('resize', sendHeight);
 </script>
 </body>
 </html>
